@@ -29,7 +29,6 @@
 param(
     [Parameter(HelpMessage = "Proivde the link to where the Expert Data File lives on the internet in XML Format.")]
     [string]$ExpertStorage = "https://raw.githubusercontent.com/DeploymentBunny/Get-TSxExperts/master/Functions/Get-TSxExperts/ExpertDataFile.xml"
-
 )
 begin{
     try{
@@ -43,7 +42,8 @@ begin{
 process{
     #Downlaod the XMLData in the running process and store
     [XML]$XMLData = (New-Object System.Net.WebClient).DownloadString($ExpertStorage)
-    foreach($Expert in $XMLData){
+    foreach($Expert in $XMLData.Data.Experts){
+        $Expert
     }
 }
 
