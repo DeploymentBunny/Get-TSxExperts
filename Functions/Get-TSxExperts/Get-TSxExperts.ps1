@@ -25,10 +25,15 @@
 
 #>
 
+function Get-TSxExperts{
 [cmdletbinding()]
 param(
     [Parameter(HelpMessage = "Proivde the link to where the Expert Data File lives on the internet in XML Format.")]
-    [string]$ExpertStorage = "https://raw.githubusercontent.com/DeploymentBunny/Get-TSxExperts/master/Functions/Get-TSxExperts/ExpertDataFile.xml"
+    [string]$ExpertStorage = "https://raw.githubusercontent.com/DeploymentBunny/Get-TSxExperts/master/Functions/Get-TSxExperts/ExpertDataFile.xml",
+    [Parameter(HelpMessage = "Boolean that allow you to only return currently active TrueSec Experts" )]
+    [bool]$Active,
+    [Parameter(HelpMessage = "Returns the list of competency choices")]
+    [string]$Competency
 )
 begin{
     try{
@@ -41,10 +46,13 @@ begin{
 }
 process{
     #Downlaod the XMLData in the running process and store
+    #Forcibly Purge the XMLData information as it does not re-build properly
+    $XMLData = $null
     [XML]$XMLData = (New-Object System.Net.WebClient).DownloadString($ExpertStorage)
-    foreach($Expert in $XMLData.Data.Experts){
-        $Expert
+    foreach($Item in $XMLData.Data.Experts.Expert){
+        $Item
     }
 }
 
-
+}
+Get-TSxExperts

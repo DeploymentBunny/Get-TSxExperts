@@ -15,18 +15,18 @@
    <Competency>Azure</Competency>
   </Expert>
    <Expert ID="2">
-   <Active>True</Active>
-   <FirstName>Jordan</FirstName>
-   <LastName>Benzing</LastName>
-   <Born>03/18/1990</Born>
-   <Title>Senior Consultant</Title>
-   <ShortDescription>An idiot who likes PowerShell more than he should</ShortDescription>
-   <LongDescription>He's too short to get a long description</LongDescription>
-   <Competency>Windows Server</Competency>
-   <Competency>Windows Client</Competency>
-   <Competency>PowerShell</Competency>
-   <Competency>Patching</Competency>
-   <Competency>Configuration Manager</Competency>
+    <Active>False</Active>
+    <FirstName>Jordan</FirstName>
+    <LastName>Benzing</LastName>
+    <Born>03/18/1990</Born>
+    <Title>Senior Consultant</Title>
+    <ShortDescription>An idiot who likes PowerShell more than he should</ShortDescription>
+    <LongDescription>He's too short to get a long description</LongDescription>
+    <Competency>Windows Server</Competency>
+    <Competency>Windows Client</Competency>
+    <Competency>PowerShell</Competency>
+    <Competency>Patching</Competency>
+    <Competency>Configuration Manager</Competency>
   </Expert>
  </Experts>
 </Data>
