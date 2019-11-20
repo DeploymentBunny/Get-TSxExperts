@@ -6,6 +6,8 @@
    <LastName>Mikael</LastName>
    <Born>19641227</Born>
    <Title>Principal Architect</Title>
+   <Contact>mikael.nystrom@truesec.se</contact>
+   <Twitter>@mikael_nystrom</Twitter>
    <ShortDescription>Short</ShortDescription>
    <LongDescription>Short</LongDescription>
    <Competency>Windows Server</Competency>
@@ -18,8 +20,10 @@
     <Active>False</Active>
     <FirstName>Jordan</FirstName>
     <LastName>Benzing</LastName>
-    <Born>03/18/1990</Born>
+    <Born>19900318</Born>
     <Title>Senior Consultant</Title>
+    <Contact>jordan.benzing@truesec.com</contact>
+    <Twitter><@JordanTheITGuy</Twitter>
     <ShortDescription>An idiot who likes PowerShell more than he should</ShortDescription>
     <LongDescription>He's too short to get a long description</LongDescription>
     <Competency>Windows Server</Competency>

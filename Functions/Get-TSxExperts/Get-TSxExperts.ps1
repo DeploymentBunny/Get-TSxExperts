@@ -31,7 +31,9 @@ param(
     [ValidateSet("True","False","Both")]
     [string]$Active = "Both",
     [Parameter(HelpMessage = "Returns the list of competency choices",ValueFromPipeline,ValueFromPipelineByPropertyName)]
-    [array]$Competency
+    [array]$Competency,
+    [Parameter(HelpMessage = "This Parameter returns all information, otherwise returns abridged properties.")]
+    [switch]$Full
 )
 begin{
     try{
@@ -59,6 +61,10 @@ process{
     if($Competency){
         $DataReturn = $DataReturn | Where-Object {$_.competency -contains $Competency} 
     }
-
-    $DataReturn
+    if($Full){
+        $DataReturn
+    }
+    else{
+        $DataReturn | Select-Object Name,Contact,Twitter,ShortDescription
+    }
 }
