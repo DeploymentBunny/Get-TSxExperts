@@ -3,13 +3,13 @@
   <Expert ID="1">
    <Active>True</Active>
    <FirstName>Mikael</FirstName>
-   <LastName>Mikael</LastName>
+   <LastName>Nystrom</LastName>
    <Born>19641227</Born>
    <Title>Principal Architect</Title>
    <Contact>mikael.nystrom@truesec.se</Contact>
    <Twitter>@mikael_nystrom</Twitter>
-   <ShortDescription>Short</ShortDescription>
-   <LongDescription>Short</LongDescription>
+   <ShortDescription>Deployment Bunny</ShortDescription>
+   <LongDescription>Expert at MDT and master of all things deployment</LongDescription>
    <Competency>Windows Server</Competency>
    <Competency>Windows Client</Competency>
    <Competency>OSD</Competency>
@@ -17,7 +17,7 @@
    <Competency>Azure</Competency>
   </Expert>
    <Expert ID="2">
-    <Active>False</Active>
+    <Active>True</Active>
     <FirstName>Jordan</FirstName>
     <LastName>Benzing</LastName>
     <Born>19900318</Born>
@@ -30,6 +30,22 @@
     <Competency>Windows Client</Competency>
     <Competency>PowerShell</Competency>
     <Competency>Patching</Competency>
+    <Competency>Configuration Manager</Competency>
+  </Expert>
+  <Expert ID="3">
+    <Active>True</Active>
+    <FirstName>Peter</FirstName>
+    <LastName>Lofgren</LastName>
+    <Born>UNKNOWN</Born>
+    <Title>Senior Technical Architect</Title>
+    <Contact>peter.lofgren@truesec.com</Contact>
+    <Twitter>@LofgrenPeter</Twitter>
+    <ShortDescription>Tallest member of TrueSec</ShortDescription>
+    <LongDescription>Master of all things RDS, Endpoint Management and more</LongDescription>
+    <Competency>Windows Server</Competency>
+    <Competency>Windows Client</Competency>
+    <Competency>OSD</Competency>
+    <Competency>Intune</Competency>
     <Competency>Configuration Manager</Competency>
   </Expert>
  </Experts>
