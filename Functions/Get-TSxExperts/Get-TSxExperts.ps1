@@ -25,15 +25,15 @@
 
 [cmdletbinding()]
 param(
-    [Parameter(HelpMessage = "Proivde the link to where the Expert Data File lives on the internet in XML Format.")]
+    [Parameter(HelpMessage = "Proivde the link to where the Expert Data File lives on the internet in XML Format.",DontShow)]
     [string]$ExpertStorage = "https://raw.githubusercontent.com/DeploymentBunny/Get-TSxExperts/master/Functions/Get-TSxExperts/ExpertDataFile.xml",
-    [Parameter(HelpMessage = "Boolean that allow you to only return currently active TrueSec Experts")]
+    [Parameter(HelpMessage = "Parameter to return active or not active that allow you to only return currently active TrueSec Experts")]
     [ValidateSet("True","False","Both")]
     [string]$Active = "Both",
     [Parameter(HelpMessage = "Returns the list of competency choices",ValueFromPipeline,ValueFromPipelineByPropertyName)]
     [array]$Competency,
     [Parameter(HelpMessage = "This Parameter returns all information, otherwise returns abridged properties.")]
-    [switch]$Full
+    [array]$Properties
 )
 begin{
     try{
@@ -61,8 +61,8 @@ process{
     if($Competency){
         $DataReturn = $DataReturn | Where-Object {$_.competency -contains $Competency} 
     }
-    if($Full){
-        $DataReturn
+    if($Properties){
+        $DataReturn | Select-Object $($Properties)
     }
     else{
         $DataReturn | Select-Object FirstName,LastName,Contact,Twitter,ShortDescription
