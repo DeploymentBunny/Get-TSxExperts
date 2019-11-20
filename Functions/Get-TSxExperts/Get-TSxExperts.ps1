@@ -27,7 +27,7 @@
 param(
     [Parameter(HelpMessage = "Proivde the link to where the Expert Data File lives on the internet in XML Format.",DontShow)]
     [string]$ExpertStorage = "https://raw.githubusercontent.com/DeploymentBunny/Get-TSxExperts/master/Functions/Get-TSxExperts/ExpertDataFile.xml",
-    [Parameter(HelpMessage = "Parameter to return active or not active that allow you to only return currently active TrueSec Experts")]
+    [Parameter(HelpMessage = "Parameter to return active or not active that allow you to only return currently active TrueSec Experts",DontShow)]
     [ValidateSet("True","False","Both")]
     [string]$Active = "Both",
     [Parameter(HelpMessage = "Returns the list of competency choices",ValueFromPipeline,ValueFromPipelineByPropertyName)]
