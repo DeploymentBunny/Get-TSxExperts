@@ -65,6 +65,6 @@ process{
         $DataReturn
     }
     else{
-        $DataReturn | Select-Object Name,Contact,Twitter,ShortDescription
+        $DataReturn | Select-Object FirstName,LastName,Contact,Twitter,ShortDescription
     }
 }
