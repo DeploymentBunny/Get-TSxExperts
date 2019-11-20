@@ -15,25 +15,23 @@
 
           Version - 0.0.0.1 - (2019-11-19)
 
-
-        #TODO: Import the XML infromation about the various TrueSec users.
-        #TODO: Create way to update the XML file.
-        #TODO: Merge to TrueSec Infrastructure Module 
+        COMPLETE: Import the XML infromation about the various TrueSec users.
+        TODO: Merge to TrueSec Infrastructure Module 
 
 .EXAMPLE
     Get-TSxExperts
 
 #>
 
-function Get-TSxExperts{
 [cmdletbinding()]
 param(
     [Parameter(HelpMessage = "Proivde the link to where the Expert Data File lives on the internet in XML Format.")]
     [string]$ExpertStorage = "https://raw.githubusercontent.com/DeploymentBunny/Get-TSxExperts/master/Functions/Get-TSxExperts/ExpertDataFile.xml",
     [Parameter(HelpMessage = "Boolean that allow you to only return currently active TrueSec Experts" )]
-    [bool]$Active,
+    [ValidateSet("True","False","Both")]
+    [string]$Active = "Both",
     [Parameter(HelpMessage = "Returns the list of competency choices")]
-    [string]$Competency
+    [array]$Competency
 )
 begin{
     try{
@@ -46,13 +44,21 @@ begin{
 }
 process{
     #Downlaod the XMLData in the running process and store
-    #Forcibly Purge the XMLData information as it does not re-build properly
-    $XMLData = $null
+    $DataReturn = $null
     [XML]$XMLData = (New-Object System.Net.WebClient).DownloadString($ExpertStorage)
-    foreach($Item in $XMLData.Data.Experts.Expert){
-        $Item
+    $DataReturn = $XMLData.Data.Experts.Expert 
+    #Paramater for returning Active members
+    if($Active -eq "True"){
+        $DataReturn = $DataReturn | Where-Object {$_.active -eq $true} | Format-Table -AutoSize
     }
-}
+    if($Active -eq "False"){
+        $DataReturn = $DataReturn | Where-Object {$_.active -eq $false} | Format-Table -AutoSize
+    }
 
+    #Parameter for returning consultants with matching competency
+    if($Competency){
+        $DataReturn = $DataReturn | Where-Object {$_.competency -contains $Competency} 
+    }
+
+    $DataReturn
 }
-Get-TSxExperts
