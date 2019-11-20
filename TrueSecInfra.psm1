@@ -108,7 +108,7 @@ begin{
 
 }
 process{
-    [array]$Array = $(Get-TSxExperts).Competency | Select-Object -Unique
+    [array]$Array = $(Get-TSxExperts -Full).Competency | Select-Object -Unique
     $Array
 }
 
