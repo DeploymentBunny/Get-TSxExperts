@@ -14,7 +14,7 @@
           Created: 2019-11-19
           Modified: 2019-11-19
 
-          Version - 0.0.0.1 - (2019-11-19)
+          Version - 0.0.0.2 - (2019-11-19)
 
         COMPLETE: Import the XML infromation about the various TrueSec users.
         TODO: Merge to TrueSec Infrastructure Module 
@@ -108,7 +108,7 @@ begin{
 
 }
 process{
-    [array]$Array = $(Get-TSxExperts -Full).Competency | Select-Object -Unique
+    [array]$Array = $(Get-TSxExperts -Properties Competency).Competency | Select-Object -Unique
     $Array
 }
 

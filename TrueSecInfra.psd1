@@ -18,7 +18,7 @@
     Updated:     11/19/2019
 
     Version history:
-    0.0.0.1 - Updated to use new coding standard for myself
+    0.0.0.2 - Updated to use new coding standard for myself
 
     #TODO: Create Folder Structure for Code and first set of functions
 #>
@@ -29,7 +29,7 @@
 	ModuleToProcess = 'TrueSecInfra.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '0.0.0.1'
+	ModuleVersion = '0.0.0.2'
 	
 	# ID used to uniquely identify this module
 	GUID = 'f8509a48-8991-40e4-a721-51ae84c4bfc3'
