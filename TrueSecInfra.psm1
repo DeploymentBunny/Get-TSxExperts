@@ -31,7 +31,7 @@
         [Parameter(HelpMessage = "Boolean that allow you to only return currently active TrueSec Experts" )]
         [ValidateSet("True","False","Both")]
         [string]$Active = "Both",
-        [Parameter(HelpMessage = "Returns the list of competency choices")]
+        [Parameter(HelpMessage = "Returns the list of competency choices",ValueFromPipeline,ValueFromPipelineByPropertyName)]
         [array]$Competency
     )
     begin{
@@ -50,10 +50,10 @@
         $DataReturn = $XMLData.Data.Experts.Expert 
         #Paramater for returning Active members
         if($Active -eq "True"){
-            $DataReturn = $DataReturn | Where-Object {$_.active -eq $true} | Format-Table -AutoSize
+            $DataReturn = $DataReturn | Where-Object {$_.active -eq $true}
         }
         if($Active -eq "False"){
-            $DataReturn = $DataReturn | Where-Object {$_.active -eq $false} | Format-Table -AutoSize
+            $DataReturn = $DataReturn | Where-Object {$_.active -eq $false}
         }
 
         #Parameter for returning consultants with matching competency
@@ -63,4 +63,46 @@
 
         $DataReturn
     }
+}
+
+function Get-TSxCompetency {
+ <#
+.SYNOPSIS
+    Get the TrueSec Competency list of every skill the organization TrueSec has. 
+
+.DESCRIPTION
+    This function will run to get the various competency options that TrueSec infrastructure supports. This cmdlet then allows you to
+    to pipe the information to the Get-TSxExperts. This cmdlet uses no pipelines.
+
+.LINK
+
+
+.NOTES
+          FileName: Get-TSxCompetency.PS1
+          Author: Jordan Benzing
+          Contact: @JordanTheItGuy
+          Created: 2019-11-20
+          Modified: 2019-11-20
+
+          Version - 0.0.0.1 - (2019-11-20)
+
+
+          TODO:
+
+
+.EXAMPLE
+    Get-TSxCompetency
+#>
+
+[cmdletbinding()]
+param(
+)
+begin{
+
+}
+process{
+    [array]$Array = $(Get-TSxExperts).Competency | Select-Object -Unique
+    $Array
+}
+
 }
