@@ -48,5 +48,21 @@
     <Competency>Intune</Competency>
     <Competency>Configuration Manager</Competency>
   </Expert>
+    <Expert ID="4">
+    <Active>True</Active>
+    <FirstName>Johan</FirstName>
+    <LastName>Arwidmark</LastName>
+    <Born>May 11,1973</Born>
+    <Title>Technical Fellow</Title>
+    <Contact>johan@2pintsoftware.com</Contact>
+    <Twitter>@jarwidmark</Twitter>
+    <ShortDescription>Almost the oldest member of TrueSec</ShortDescription>
+    <LongDescription>ConfigMgr and Deployment Geek</LongDescription>
+    <Competency>Windows Server</Competency>
+    <Competency>Windows Client</Competency>
+    <Competency>OSD</Competency>
+    <Competency>Intune</Competency>
+    <Competency>Configuration Manager</Competency>
+  </Expert>
  </Experts>
 </Data>
