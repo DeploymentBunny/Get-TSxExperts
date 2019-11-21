@@ -29,7 +29,7 @@
 	ModuleToProcess = 'TrueSecInfra.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '0.0.0.2'
+	ModuleVersion = '0.0.0.3'
 	
 	# ID used to uniquely identify this module
 	GUID = 'f8509a48-8991-40e4-a721-51ae84c4bfc3'
