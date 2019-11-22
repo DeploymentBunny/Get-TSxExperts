@@ -49,7 +49,7 @@
     <Competency>Configuration Manager</Competency>
   </Expert>
     <Expert ID="4">
-    <Active>True</Active>
+    <Active>False</Active>
     <FirstName>Johan</FirstName>
     <LastName>Arwidmark</LastName>
     <Born>May 11,1973</Born>
@@ -141,6 +141,20 @@
     <Competency>Configuration Manager</Competency>
     <Competency>Windows Client</Competency>
   </Expert>
-  
+  <Expert ID="9">
+    <Active>True</Active>
+    <FirstName>Andreas</FirstName>
+    <LastName>Fjellner</LastName>
+    <Born>19830728</Born>
+    <Title>Senior Consultant</Title>
+    <Contact>andreas.fjellner@truesec.se</Contact>
+    <Twitter>@andreasfjellner</Twitter>
+    <ShortDescription>PowerShell all day long</ShortDescription>
+    <LongDescription>Get-LongDescription -ErrorAction Stop</LongDescription>
+    <Competency>PowerShell</Competency>
+    <Competency>Windows Server</Competency>
+    <Competency>Deployment</Competency>
+    <Competency>SQL</Competency>
+ </Expert>
  </Experts>
 </Data>
