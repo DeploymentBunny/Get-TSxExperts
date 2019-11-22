@@ -64,5 +64,19 @@
     <Competency>Intune</Competency>
     <Competency>Configuration Manager</Competency>
   </Expert>
+  <Expert ID="4">
+    <Active>True</Active>
+    <FirstName>Markus</FirstName>
+    <LastName>Lassfolk</LastName>
+    <Born>19770116</Born>
+    <Title>Special Snowflake</Title>
+    <Contact>markus.lassfolk@truesec.com</Contact>
+    <Twitter>@Lassfolk</Twitter>
+    <ShortDescription>Uses more Powershell with EVE Online than actually playing the game... </ShortDescription>
+    <LongDescription>Not the tallest, not the largest and not the smartest, but still a quite OK guy anyway.</LongDescription>
+    <Competency>Windows Server</Competency>
+    <Competency>Secure Infrastructure</Competency>
+    <Competency>Hybrid and Public Cloud</Competency>
+  </Expert>
  </Experts>
 </Data>
