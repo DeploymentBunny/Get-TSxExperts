@@ -16,7 +16,7 @@
    <Competency>Hyper-V</Competency>
    <Competency>Azure</Competency>
   </Expert>
-   <Expert ID="2">
+  <Expert ID="2">
     <Active>True</Active>
     <FirstName>Jordan</FirstName>
     <LastName>Benzing</LastName>
@@ -95,5 +95,52 @@
     <Competency>Office 365</Competency>
     <Competency>Automation</Competency>
   </Expert>
+  <Expert ID="6">
+    <Active>True</Active>
+    <FirstName>Tim</FirstName>
+    <LastName>Davis</LastName>
+    <Born>19800705</Born>
+    <Title>Codeslinger</Title>
+    <Contact>tim.davis@truesec.com</Contact>
+    <Twitter>@binarymethod</Twitter>
+    <ShortDescription> So many languages so little time </ShortDescription>
+    <LongDescription> I’m a programmar….programar…programmer…..I write code!</LongDescription>
+    <Competency>Windows Server</Competency>
+    <Competency>.NET Core</Competency>
+ </Expert>
+ <Expert ID="7">
+    <Active>True</Active>
+    <FirstName>Jonas</FirstName>
+    <LastName>Rydstrom</LastName>
+    <Born>19780105</Born>
+    <Title>Senior Cunsultant</Title>
+    <Contact>jonas.rydstrom@truesec.se</Contact>
+    <Twitter>@TRUESEC_se</Twitter>
+    <ShortDescription>Happy to help</ShortDescription>
+    <LongDescription>Planning, organizing and do things in a controlled way with minimal impact. That is my thing.</LongDescription>
+    <Competency>System Center Virtual Machine Manager</Competency>
+    <Competency>System Center Operations Manager</Competency>
+    <Competency>System Center Data Protection Manager</Competency>
+    <Competency>System Center Service Manager</Competency>
+    <Competency>Operations and management of Infrastructure</Competency>
+    <Competency>Hyper-V</Competency>
+    <Competency>Failover Cluster</Competency>
+    <Competency>On Prem Cloud</Competency>
+  </Expert>
+  <Expert ID="8">
+    <Active>True</Active>
+    <FirstName>Steve</FirstName>
+    <LastName>Campbell</LastName>
+    <Born>19630804</Born>
+    <Title>Principle Technical Architect</Title>
+    <Contact>soup@truesec.com</Contact>
+    <Twitter>@soupatwork</Twitter>
+    <ShortDescription>Agent for deployment and change</ShortDescription>
+    <LongDescription>First, there were the dinosaurs. But they all died<LongDescription>
+    <Competency>Big ugly migrations and deployments</Competency>
+    <Competency>Configuration Manager</Competency>
+    <Competency>Windows Client</Competency>
+  </Expert>
+  
  </Experts>
 </Data>
