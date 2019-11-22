@@ -136,7 +136,7 @@
     <Contact>soup@truesec.com</Contact>
     <Twitter>@soupatwork</Twitter>
     <ShortDescription>Agent for deployment and change</ShortDescription>
-    <LongDescription>First, there were the dinosaurs. But they all died<LongDescription>
+    <LongDescription>First, there were the dinosaurs. But they all died</LongDescription>
     <Competency>Big ugly migrations and deployments</Competency>
     <Competency>Configuration Manager</Competency>
     <Competency>Windows Client</Competency>
