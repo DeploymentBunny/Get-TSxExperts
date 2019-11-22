@@ -78,5 +78,22 @@
     <Competency>Secure Infrastructure</Competency>
     <Competency>Hybrid and Public Cloud</Competency>
   </Expert>
+  <Expert ID="4">
+    <Active>True</Active>
+    <FirstName>Mattias</FirstName>
+    <LastName>Lehmus</LastName>
+    <Born>19830207</Born>
+    <Title>Senior Technical Architect</Title>
+    <Contact>mattias.lehmus@truesec.com</Contact>
+    <Twitter>@1Lehmus</Twitter>
+    <ShortDescription>Automate my life so I can relax </ShortDescription>
+    <LongDescription>Don't want to do anything twice, I would rather automate if I'm doing it more than onece. Life is to short to do repetitive things </LongDescription>
+    <Competency>Windows Server</Competency>
+    <Competency>Secure Infrastructure</Competency>
+    <Competency>Hybrid and Public Cloud</Competency>
+    <Competency>Azure</Competency>
+    <Competency>Office 365</Competency>
+    <Competency>Automation</Competency>
+  </Expert>
  </Experts>
 </Data>
