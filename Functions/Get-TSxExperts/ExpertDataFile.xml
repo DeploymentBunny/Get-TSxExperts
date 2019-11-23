@@ -156,5 +156,19 @@
     <Competency>Deployment</Competency>
     <Competency>SQL</Competency>
  </Expert>
+ <Expert ID="10">
+    <Active>True</Active>
+    <FirstName>Ted</FirstName>
+    <LastName>Molin</LastName>
+    <Born>19770319</Born>
+    <Title>Senior Consultant</Title>
+    <Contact>ted.molin@truesec.se</Contact>
+    <Twitter>@Ted_SwimGeek</Twitter>
+    <ShortDescription>Geeks and swims</ShortDescription>
+    <LongDescription>Grew up with classic (now legacy) Microsoft infrastructure but nowadays more and more lean towards Azure and O365</LongDescription>
+    <Competency>Cloud Security</Competency>
+    <Competency>Hybrid and Public Cloud</Competency>
+    <Competency>Knows a little about many other things</Competency>
+ </Expert>
  </Experts>
 </Data>
