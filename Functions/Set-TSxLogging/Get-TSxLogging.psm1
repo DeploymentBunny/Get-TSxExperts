@@ -135,5 +135,3 @@ function set-TSxLogPath {
         }
     }
 }
-
-Write-TSxLog -Message "Still works using F8 command from De-Bug in VSCode"
