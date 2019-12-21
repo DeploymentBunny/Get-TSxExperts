@@ -20,7 +20,6 @@ Function Write-TSxLog {
         set-TSxLogPath -LogFolderPath $LogFoldderPath
     }
     elseif ($LogFileName) {
-
         set-TSxLogPath -LogFileName $LogFileName
     }
     if (!($Global:TSxCurrentLogFile)) {
@@ -74,7 +73,7 @@ function set-TSxLogPath {
     process {
         #region SetLogfileName
         if ($LogFileName) {
-            if ($($LogFileName.Substring($($LogFileName.Length - 3)) -eq "log")) {
+            if ($($LogFileName.Substring($($LogFileName.Length - 4)) -eq ".log")) {
                 $LogFile = $LogFileName
             }
             else {
@@ -83,9 +82,9 @@ function set-TSxLogPath {
         }
         else {
             if ($script:MyInvocation) {
-                $callstack = Get-PSCallStack
-                $LogFile = "$($($callstack[$callstack.Length-2].InvocationInfo.MyCommand.Name).Substring(0,$($callstack[$callstack.Length-2].InvocationInfo.MyCommand.Name).Length-4)).log"
-                $Global:CallStack = $callstack
+                $TSxCallStack = Get-PSCallStack
+                $LogFile = "$($($TSxCallStack[$TSxCallStack.Length-2].InvocationInfo.MyCommand.Name).Substring(0,$($TSxCallStack[$TSxCallStack.Length-2].InvocationInfo.MyCommand.Name).Length-4)).log"
+                $Global:TSxCallStack = $TSxCallStack
             }
             else {
                 $LogFile = "TSXModule.log"
@@ -97,7 +96,6 @@ function set-TSxLogPath {
         #Region SetLogFolderName
         if ($LogFolderPath) {
             $FullLogFile = "$($LogFolderPath)\$($logFile)"
-            Write-Debug -Message "This log has not been used before now initializing the path"
             if ($(Get-Variable -Name "TSx*" | Where-Object { $_.Value -like "*$($LogFile)" })) {
                 $Global:TSxCurrentLogFile = $(Get-Variable -Name "TSX*$($LogFile)" | Where-Object { $_.Value -like "*$($LogFile)" }).Value
             }
@@ -106,32 +104,43 @@ function set-TSxLogPath {
                 $Global:TSxCurrentLogFile = $(Get-Variable -Name "TSX*$($LogFile)" | Where-Object { $_.Value -like "*$($LogFile)" }).Value
             }
         }
-        elseif ($PSScriptRoot) {
-            $Name = $CallStack[-2].InvocationInfo.MyCommand.Name
-            $Source = $CallStack[-2].InvocationInfo.MyCommand.Source
-            $LogFolderPath = $Source.Replace($Name, "")
-            $Global:TSxCurrentLogFile = "$($LogFolderPath)$($Logfile)"
-        }
         else {
             if ($(Get-Variable -Name "TSx*" | Where-Object { $_.Value -like "*$($LogFile)" })) {
                 $Global:TSxCurrentLogFile = $(Get-Variable -Name "TSX*$($LogFile)" | Where-Object { $_.Value -like "*$($LogFile)" }).Value
             }
             else {
-                Write-Warning -Message "You specified a log that doesn't exist, or hasn't been declared - all commands will be logged to: $($Global:TSxDefaultlogFile)"
+                try {
+                    if ($MyInvocation.InvocationName -eq "set-TSxLogPath") {
+                        #Write-Warning -Message "You ran the code from a location that caused the invocation path to be equal to the function and caused a filepath violation." -WarningAction Stop
+                        throw
+                    }
+                    else { 
+                        $TSxCallStack = Get-PSCallStack
+                        $Global:TSxCallStack = $TSxCallStack
+                        $Name = $TSxCallStack[-2].InvocationInfo.MyCommand.Name
+                        $Source = $TSxCallStack[-2].InvocationInfo.MyCommand.Source
+                        $LogFolderPath = $Source.Replace($Name, "")
+                        $Global:TSxCurrentLogFile = "$($LogFolderPath)$($Logfile)"
+                    }
+                }
+            catch {
+                Write-Warning -Message "$($_.Exception.Message)"
+                Write-Warning -Message "You specified a log that doesn't exist, or hasn't been declared and or we can't find the current executing script - all commands will be logged to: $($Global:TSxDefaultlogFile)"
                 $Global:TSxCurrentLogFile = $Global:TSxDefaultLogFile
             }
         }
-        #endregion SetLogFolderName
-        try {
-            #Confirm the provided destination for logging exists if it doesn't then create it.
-            if (!(Test-Path $Global:TSxCurrentLogFile)) {
-                ## Create the log file destination if it doesn't exist.
-                New-Item $Global:TSxCurrentLogFile -Type File | Out-Null
-            }
-        }
-        catch {
-            #In event of an error write an exception
-            Write-Error $_.Exception.Message
+    }
+    #endregion SetLogFolderName
+    try {
+        #Confirm the provided destination for logging exists if it doesn't then create it.
+        if (!(Test-Path $Global:TSxCurrentLogFile)) {
+            ## Create the log file destination if it doesn't exist.
+            New-Item $Global:TSxCurrentLogFile -Type File | Out-Null
         }
     }
+    catch {
+        #In event of an error write an exception
+        Write-Error $_.Exception.Message
+    }
+}
 }
