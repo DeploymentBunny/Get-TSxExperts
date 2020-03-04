@@ -74,14 +74,16 @@ function set-TSxLogPath {
         }
     }
     else{
-        if (Test-Path -Path $LogFolderPath) {
-            if ($MyInvocation.ScriptName) {
-                Write-Warning -Message "We were not supposed to get here...$($MyInvocation.ScriptName)"
-                $LogFile = "$($($script:MyInvocation.MyCommand.Name).Substring(0,$($script:MyInvocation.MyCommand.Name).Length-4)).log"
-            }
-            else {
-                $LogFile = "$($ENV:TEMP)\TSXModule.log"
-                Write-Warning -Message "You are running inside ISE - all commands will be logged to: $($LogFile)"
+        if($LogFolderPath){
+            if (Test-Path -Path $LogFolderPath) {
+                if ($MyInvocation.ScriptName) {
+                    Write-Warning -Message "We were not supposed to get here...$($MyInvocation.ScriptName)"
+                    $LogFile = "$($($script:MyInvocation.MyCommand.Name).Substring(0,$($script:MyInvocation.MyCommand.Name).Length-4)).log"
+                }
+                else {
+                    $LogFile = "$($ENV:TEMP)\TSXModule.log"
+                    Write-Warning -Message "You are running inside ISE - all commands will be logged to: $($LogFile)"
+                }
             }
         }
         else {
